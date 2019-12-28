@@ -30,6 +30,6 @@ PROTO=$(echo $1 | tr a-z A-Z)
 TIMEOUT=""
 test -n "$4" && TIMEOUT="-T$4"
 
-CMD="socat ${TIMEOUT} ${PROTO}-LISTEN:$2,reuseaddr,fork ${PROTO}:$3:$2"
+CMD="/bin/socat ${TIMEOUT} ${PROTO}-LISTEN:$2,reuseaddr,fork ${PROTO}:$3:$2"
 echo "Running ${CMD}"
 exec ${CMD}
